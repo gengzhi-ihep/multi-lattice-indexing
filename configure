@@ -1,0 +1,6 @@
+#-------------- Compiler ------------------
+
+/usr/lib64/openmpi/bin/mpif90 -fopenmp ./src/func.f90 ./src/index.f90 -I/usr/lib64/openmpi/lib/ -L/usr/local/lib \
+-lfgsl -I/usr/local/include/fgsl  -o ./bin/index -J ./include
+
+gfortran ./src/func-sfx.f90 ./src/prepare-sfx.f90 -I/usr/local/include/fgsl -L/usr/local/lib -lfgsl -o ./bin/prepare-sfx -J ./include
