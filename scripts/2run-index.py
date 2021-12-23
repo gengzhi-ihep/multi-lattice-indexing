@@ -48,8 +48,8 @@ if __name__ == "__main__":
    command = 'cp '+ curdir+'/SPOT.TXT SPOT-TMP.TXT'
    os.system(command)
 
-   command = 'cp '+ curdir+'/param.config param.config'
-   os.system(command)
+#   command = 'cp '+ curdir+'/param.config param.config'
+#   os.system(command)
 
    command = opts.mpi
    args = " -np %d %s" % (opts.node, opts.exe)
@@ -59,9 +59,9 @@ if __name__ == "__main__":
 
       for n in range(opts.nlat):
 
-         print "======================================================"
+         print "================================================================"
          print "Try to find crystal: ", n+1
-         f.write("======================================================\n")
+         f.write("================================================================\n")
          f.write("Try to find crystal: %d \n"%(n+1))
 
          p = subprocess.Popen(command,shell=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)

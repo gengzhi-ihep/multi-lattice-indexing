@@ -52,7 +52,8 @@ if __name__ == "__main__":
    fp = open('XDSCONV.INP','w')
    fp.write("SPACE_GROUP_NUMBER= %d \n" % opts.spgn)
    fp.write("UNIT_CELL_CONSTANTS= "+opts.unit+'\n')
-   fp.write("INPUT_FILE= temp.ahkl \n")
+#   fp.write("INPUT_FILE= temp.ahkl \n")
+   fp.write("INPUT_FILE= XDS_ASCII.HKL \n")
    fp.write("OUTPUT_FILE= temp.hkl CCP4_F \n")
    fp.write("FRIEDEL'S_LAW="+opts.fred+'\n')
    fp.write("MERGE="+opts.fred+'\n')
@@ -60,4 +61,20 @@ if __name__ == "__main__":
 
    command = "xdsconv"
    p = subprocess.Popen(command,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
+   out,err = p.communicate()
+
+   command = "f2mtz HKLOUT temp.mtz"
+   p = subprocess.Popen(command,shell=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
+   params = open("F2MTZ.INP","r").readlines()
+   args = ""
+   for arg in params:
+       args += str(arg)
+   p.stdin.write(args)
+   out,err = p.communicate()
+
+   command = "cad HKLIN1 temp.mtz HKLOUT output_file_name.mtz"
+   p = subprocess.Popen(command,shell=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
+   args = "LABIN FILE 1 ALL"
+#   args += "DWAVELENGTH FILE 1 1   0.97918"
+   p.stdin.write(args)
    out,err = p.communicate()

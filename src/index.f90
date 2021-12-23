@@ -61,79 +61,79 @@ program main
       call extract_values(line, key, val)
 
       if(key .eq. 'Space_group') then
-          read(val, '(I4)') spg_num
+          read(val, *) spg_num
       else if(key .eq. 'Crystal_system') then
           crystal_system = val
       else if(key .eq. 'Unit_cell_a') then
-          read(val, '(F6.2)') uc(1)
+          read(val, *) uc(1)
       else if(key .eq. 'Unit_cell_b') then
-          read(val, '(F6.2)') uc(2)
+          read(val, *) uc(2)
       else if(key .eq. 'Unit_cell_c') then
-          read(val, '(F6.2)') uc(3)
+          read(val, *) uc(3)
       else if(key .eq. 'Unit_cell_alpha') then
-          read(val, '(F6.2)') uc(4)
+          read(val, *) uc(4)
       else if(key .eq. 'Unit_cell_beta') then
-          read(val, '(F6.2)') uc(5)
+          read(val, *) uc(5)
       else if(key .eq. 'Unit_cell_gama') then
-          read(val, '(F6.2)') uc(6)
+          read(val, *) uc(6)
       else if(key .eq. 'Wavelength') then
-          read(val, '(F4.2)') lambda
+          read(val, *) lambda
       else if(key .eq. 'Distance') then
-          read(val, '(F6.2)') distance
+          read(val, *) distance
       else if(key .eq. 'Pixel_size') then
-          read(val, '(F6.4)') pixsize
+          read(val, *) pixsize
       else if(key .eq. 'XCenter') then
-          read(val, '(F8.2)') centx
+          read(val, *) centx
       else if(key .eq. 'YCenter') then
-          read(val, '(F8.2)') centy
+          read(val, *) centy
       else if(key .eq. 'Enable_rescut') then
-          read(val, '(I2)') tmp
+          read(val, *) tmp
           if(tmp .eq. 0) then
               enable_rescut = .false.
           else
               enable_rescut = .true.
           end if
       else if(key .eq. 'Rescut') then
-          read(val, '(F4.1)') rescut
+          read(val, *) rescut
       else if(key .eq. 'Enable_refcut') then
-          read(val, '(I2)') tmp
+          read(val, *) tmp
           if(tmp .eq. 0) then
               enable_refcut = .false.
           else
               enable_refcut = .true.
           end if
       else if(key .eq. 'Refcut') then
-          read(val, '(I4)') refcut
+          read(val, *) refcut
       else if(key .eq. 'Position_error') then
-          read(val, '(F4.2)') pos_err
+          read(val, *) pos_err
       else if(key .eq. 'Enable_uc_scan') then
-          read(val, '(I2)') tmp
+          read(val, *) tmp
           if(tmp .eq. 0) then
               enable_uc_scan = .false.
           else
               enable_uc_scan = .true.
           end if
       else if(key .eq. 'Enable_gridscan') then
-          read(val, '(I2)') tmp
+          read(val, *) tmp
           if(tmp .eq. 0) then
               enable_gridscan = .false.
           else
               enable_gridscan = .true.
           end if
       else if(key .eq. 'XCScan') then
-          read(val, '(I2)') ncentx
+          read(val, *) ncentx
       else if(key .eq. 'YCScan') then
-          read(val, '(I2)') ncenty
+          read(val, *) ncenty
       else if(key .eq. 'XYCScanstep') then
-          read(val, '(I2)') cent_step
+          read(val, *) cent_step
       else if(key .eq. 'CellScan') then
-          read(val, '(F4.1)') cell_range
+          read(val, *) cell_range
       else if(key .eq. 'CellScanstep') then
-          read(val, '(F4.1)') cell_step
+          read(val, *) cell_step
       else if(key .eq. 'Local_angle_range') then
-          read(val, '(F4.1)') local_angle_range
+          read(val, *) local_angle_range
       else if(key .eq. 'Local_angle_step') then
-          read(val, '(F4.1)') local_angle_step
+          read(val, *) local_angle_step
       end if
 
   end do
@@ -142,6 +142,38 @@ program main
 
   !master processor: read in spot within predefined resolution range
   if(node .eq. 0)then
+
+     write(*,*)
+     write(*,'(a)') "--------------------------------------------------------------"
+     write(*,"(a)") "                 User Input Information"
+     write(*,*)
+     write(*,"(a,I4)") " Space group code: ", spg_num
+     write(*,"(a,a)") " Crystal system: ", crystal_system
+     write(*,"(a,3F10.4,3F8.2)") " Unit Cell: ", uc
+     write(*,"(a,F8.6)") " Wavelength(A): ", lambda
+     write(*,"(a,F6.2)") " Distance(mm): ", distance
+     write(*,"(a,F6.4)") " Pixel size(mm): ", pixsize
+     write(*,"(a,2F8.2)") " Beam center(pixels): ", centx, centy
+     write(*,"(a,F4.2)") " Position Error for indexing(pixels): ", pos_err
+     write(*,*) "Resolution cut? {T/F}: ", enable_rescut
+     if(enable_rescut)then
+         write(*,"(a,F4.1)") " Resolution cutoff(A): ", rescut
+     end if
+     write(*,*) "Reflection number cut? {T/F}: ", enable_refcut
+     if(enable_refcut)then
+         write(*,"(a,I4)") " Reflection number cutoff: ", refcut
+     end if
+     write(*,*) "Unit cell refine? {T/F}: ", enable_uc_scan
+     if(enable_uc_scan)then
+         write(*,"(a,2F4.1)") " Unit cell refinement range & step: ", cell_range, cell_step
+     end if
+     write(*,*) "Local refine? {T/F}: ", enable_gridscan
+     if(enable_gridscan)then
+         write(*,"(a,3I2)") " Beam center refinement range & step: ", ncentx, ncenty, cent_step
+         write(*,"(a,2F4.1)") " Local angle range & step: ", local_angle_range,local_angle_step
+     end if
+     write(*,'(a)') "--------------------------------------------------------------"
+     write(*,*)
 
      !read in spot position
      open(20,file="SPOT-TMP.TXT", status='old')
@@ -183,6 +215,7 @@ program main
         end do
 
      end if
+
 
      do n = 1, nrefl
         x(n) = tmp_x(n)
@@ -298,8 +331,11 @@ program main
       end do
 
       write(*,*)
-      write(*,'(a)') "Initial result:"
-      write(*,'(a,F6.3,a,F8.3)') "Initial Match rate: ", best(1),  "  Positional deviation: ", best(5)
+      write(*,'(a)') "--------------------------------------------------------------"
+      write(*,'(a)') "                 Initial indexing result"
+      write(*,*)
+      write(*,'(a,F6.3,a,F8.3)') " Match rate: ", best(1),  "  Positional deviation (pixels): ", best(5)
+      write(*,'(a)') "--------------------------------------------------------------"
 
 
       psi_best = psi_init; phi_best = phi_init; theta_best = theta_init
@@ -450,8 +486,11 @@ program main
          uc = (/ua_best, ub_best, uc_best, uc(4), uc(5), uc(6)/)
 
          write(*,*)
-         write(*,'(a)') "After prior information correction:"
-         write(*,'(a,F6.3,a,F8.3)') "Match rate: ", best(1),  "Positional deviation:", best(5)
+         write(*,'(a)') "--------------------------------------------------------------"
+         write(*,'(a)') "                 After prior information correction"
+         write(*,*)
+         write(*,'(a,F6.3,a,F8.3)') " Match rate: ", best(1),  "Positional deviation:", best(5)
+         write(*,'(a)') "--------------------------------------------------------------"
          write(*,*)
 
       end if
@@ -462,21 +501,28 @@ program main
       om_best = matmul(rot,UB_B)
 
       write(*,*)
-      write(*,'(a)') "Initial Orientation Matrix:"
+      write(*,'(a)') "--------------------------------------------------------------"
+      write(*,'(a)') "                 Initial Orientation Matrix"
+      write(*,*)
       write(*,'(3F10.6)')om_best(1,:)
       write(*,'(3F10.6)')om_best(2,:)
       write(*,'(3F10.6)')om_best(3,:)
+      write(*,'(a)') "--------------------------------------------------------------"
 
       write(*,*)
-      write(*,'(18X,a)') "    UC_a    UC_b    UC_c    Psi    Phi    Theta  CenterX  CenterY  Distance "
-      write(*,'(a,9F8.2)') "Inital parameters: ", uc(1), uc(2), uc(3), psi_best/pi*180, phi_best/pi*180,&
+      write(*,'(a)') "--------------------------------------------------------------"
+      write(*,'(a)') "                 Preliminary results before refinement"
+      write(*,*)
+      write(*,'(18X,a)') "     UC_a    UC_b    UC_c     Psi    Phi    Theta  CenterX CenterY Distance "
+      write(*,'(a,9F8.2)') " Inital parameters: ", uc(1), uc(2), uc(3), psi_best/pi*180, phi_best/pi*180,&
                   theta_best/pi*180, centx_best, centy_best, distance_best
-      write(*,'(a,F8.3,a)') "Initial Residual Error:  ", best(5), " pixels"
+      write(*,'(a,F8.3,a)') " Initial Residual Error:  ", best(5), " pixels"
+      write(*,'(a)') "--------------------------------------------------------------"
       write(*,*)
 
-      write(*,'(a)') "Iterative refinement process:"
+      write(*,'(a)') "--------------------------------------------------------------"
+      write(*,'(a)') "                 Iterative refinement process"
       write(*,*)
-      write(*,'(a)') "----------------"
 
       !iterative refinement
       do niter = 1, 10
@@ -493,10 +539,8 @@ program main
             end if
          end do
 
-         write(*,'(a,I4)') "Number of refinement: ", niter
-         write(*,*)
+         write(*,'(a,I4)') " Cycle of refinement: ", niter
          write(*,'(I5,a,I5)') nfound, " reflections matched and used for refinement from total of", nrefl
-         write(*,*)
 
          datas%nrefl = nfound
          datas%x = sub_x; datas%y = sub_y
@@ -533,13 +577,9 @@ program main
 
             end do
 
-            write(*,'(a,9F8.2)') "Refined parameters: ", xptr(1), xptr(1), xptr(1), xptr(2:4)/pi*180, xptr(5:7)
+            write(*,'(a,9F8.2)') " Refined parameters: ", xptr(1), xptr(1), xptr(1), xptr(2:4)/pi*180, xptr(5:7)
+            write(*,'(a,F8.3,a)') " Final Residual Error:", fgsl_multimin_fminimizer_minimum(min_fslv), " pixels"
             write(*,*)
-
-
-            write(*,'(a,F8.3)') "Final Residual Error:", fgsl_multimin_fminimizer_minimum(min_fslv)
-            write(*,*)
-            write(*,'(a)') "----------------"
 
             call rotation_mat_from_rodrigues(xptr(2), xptr(3), xptr(4), rot)
             call transformation_matrix((/xptr(1), xptr(1), xptr(1), uc(4), uc(5), uc(6)/), UB_B)
@@ -583,13 +623,9 @@ program main
 
             end do
 
-            write(*,'(a,9F8.2)') "Refined parameters: ", xptr(1), xptr(1),xptr(2), xptr(3:5)/pi*180, xptr(6:8)
+            write(*,'(a,9F8.2)') " Refined parameters: ", xptr(1), xptr(1),xptr(2), xptr(3:5)/pi*180, xptr(6:8)
+            write(*,'(a,F8.3,a)') " Final Residual Error:", fgsl_multimin_fminimizer_minimum(min_fslv), " pixels"
             write(*,*)
-
-
-            write(*,'(a,F8.3)') "Final Residual Error:", fgsl_multimin_fminimizer_minimum(min_fslv)
-            write(*,*)
-            write(*,'(a)') "----------------"
 
             call rotation_mat_from_rodrigues(xptr(3), xptr(4), xptr(5), rot)
             call transformation_matrix((/xptr(1), xptr(1), xptr(2), uc(4), uc(5), uc(6)/), UB_B)
@@ -633,13 +669,9 @@ program main
 
             end do
 
-            write(*,'(a,9F8.2)') "Refined parameters: ", xptr(1:3), xptr(4:6)/pi*180, xptr(7:9)
+            write(*,'(a,9F8.2)') " Refined parameters: ", xptr(1:3), xptr(4:6)/pi*180, xptr(7:9)
+            write(*,'(a,F8.3,a)') " Final Residual Error:", fgsl_multimin_fminimizer_minimum(min_fslv), " pixels"
             write(*,*)
-
-
-            write(*,'(a,F8.3)') "Final Residual Error:", fgsl_multimin_fminimizer_minimum(min_fslv)
-            write(*,*)
-            write(*,'(a)') "----------------"
 
             call rotation_mat_from_rodrigues(xptr(4), xptr(5), xptr(6), rot)
             call transformation_matrix((/xptr(1), xptr(2), xptr(3), uc(4), uc(5), uc(6)/), UB_B)
@@ -655,11 +687,15 @@ program main
 
       end do
 
+      write(*,'(a)') "--------------------------------------------------------------"
       write(*,*)
-      write(*,'(a)') "Refined Orientation Matrix:"
+      write(*,'(a)') "--------------------------------------------------------------"
+      write(*,'(a)') "                 Refined Orientation Matrix"
+      write(*,*)
       write(*,'(3F10.6)')om_best(1,:)
       write(*,'(3F10.6)')om_best(2,:)
       write(*,'(3F10.6)')om_best(3,:)
+      write(*,'(a)') "--------------------------------------------------------------"
 
       nfound = 0
       open(20, file='best.txt', status='replace')
@@ -679,7 +715,11 @@ program main
       close(21)
 
       write(*,*)
+      write(*,'(a)') "--------------------------------------------------------------"
+      write(*,'(a)') "                 Summary of reflection matching"
+      write(*,*)
       write(*,'(I5,a,I5)') nfound, " reflections have been identified after refinement and written to file from total of", nrefl
+      write(*,'(a)') "--------------------------------------------------------------"
       write(*,*)
 
       call fgsl_multimin_fminimizer_free(min_fslv)
@@ -694,8 +734,8 @@ program main
   time2 = MPI_Wtime()
 
   if(node .eq. 0)then
-      write(*,*) "Time used: ", time2-time1
-      write(*,*) "==============================================="
+      write(*,'(a,F10.2)') " Total Time used (seconds): ", time2-time1
+      write(*,'(a)') "================================================================"
       write(*,*)
   end if
    

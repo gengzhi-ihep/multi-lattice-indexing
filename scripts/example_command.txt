@@ -1,15 +1,15 @@
-python 1peak-search-xds.py -p "/home/gengzhi/dataset/lyso-3crystals" -f "lyso-3crystals01.????" -n 1 -r "1  0  0"  -m "./results"
+python 1peak-search-xds.py -p "/home/gengzhi/dataset/lyso-3crystals" -f "lyso-3crystals01.????" -n 1 -r "1  0  0"  -m "."
 
-python 2run-index.py -k 9 -n 5 -e "/home/gengzhi/codes/index-search/software/bin/index" -d "/usr/lib64/openmpi/bin/mpirun" -m "./results"
+python 2run-index.py -k 9 -n 5 -e "/home/gengzhi/software/multi-indexing/bin/index" -d "/usr/lib64/openmpi/bin/mpirun" -m "."
 
-python 3integrate-xds.py -s 96 -u "77.0 77.0 37.24 90.0 90.0 90.0" -t "1  30" -r "1  0  0"  -o "1034.84 1028.31" -z "50  0" -a "-1.3053 -33.4794 69.3425" -b "47.555 54.1956 27.0615" -c "-29.2227 20.8823 9.5321" -m "./results"
+python 3integrate-xds.py -s 96 -u "77.0  77.0  37.24  90.0  90.0  90.0" -n 1 -t "1  30" -r "1  0  0"  -o "1034.84 1028.31" -z "50  0" -m "0.009463 -0.005849 -0.014483;0.008637 0.002454 0.019843;-0.002964 -0.011519 0.011581" -e "."
 
-python 4correct-xds.py -s 96 -u "77.0 77.0 37.24 90.0 90.0 90.0" -z "50  0" -m "./results"
+python 4correct-xds.py -s 96 -u "77.0 77.0 37.24 90.0 90.0 90.0" -z "50  0" -m "."
 
-python 5multi-merge.py -f "XDS_ASCII.HKL" -u "77.0 77.0 37.24 90.0 90.0 90.0" -s 96 -t "TRUE" -m "./results"
+python 5multi-merge.py -f "XDS_ASCII.HKL" -u "77.0 77.0 37.24 90.0 90.0 90.0" -s 96 -t "TRUE" -m "."
 
-python reject-overlap-xds.py -f "INTEGRATE1.HKL  INTEGRATE2.HKL INTEGRATE3.HKL" -t 3.0 -m "./results"
+python reject-overlap-xds.py -f "INTEGRATE1.HKL  INTEGRATE2.HKL INTEGRATE3.HKL" -t 3.0 -m "." -n 360 -r 100
 
 python3 show_cluster.py -f "class.txt" -c 0.2 -t 30
 
-python run-sfx-index.py -k 9 -n 5 -t 500 -e "/home/gengzhi/codes/index-search/software/bin/index" -d "/usr/lib64/openmpi/bin/mpirun" -m "./results"
+python run-sfx-index.py -k 9 -n 5 -t 500 -e "/home/gengzhi/software/multi-indexing/bin/index" -d "/usr/lib64/openmpi/bin/mpirun" -m "."

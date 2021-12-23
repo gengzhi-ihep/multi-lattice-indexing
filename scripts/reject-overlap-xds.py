@@ -20,6 +20,10 @@ if __name__ == "__main__":
    parser.add_option('-f','--inpf',dest='inpf',default="INTEGRATE1.HKL INTEGRATE2.HKL",type='string',help='A list of input unmerged files to remove overlap')
    parser.add_option('-t','--cut',dest='cut',default=3.0,type='float',help='Threshold for spot overlapping')
    parser.add_option('-m','--res',dest='res',default='./results',type='string',help='Path to saving result')
+   parser.add_option('-n','--npat',dest='npat',default=360,type='int',help='Number of collected diffraction patterns')
+   parser.add_option('-r','--nref',dest='nref',default=1000,type='int',help='Maximum number of reflections for each pattern')
+   
+
 
    (opts, args) = parser.parse_args()
 
@@ -34,11 +38,14 @@ if __name__ == "__main__":
    files = opts.inpf.split()
 
    num = len(files)
-
-   nrefls = np.zeros((360,num))
    
-   xdata = np.zeros((1000,360,num))
-   ydata = np.zeros((1000,360,num))
+   N_images=opts.npat
+   max_refls=opts.nref
+
+   nrefls = np.zeros((N_images,num))
+   
+   xdata = np.zeros((max_refls,N_images,num))
+   ydata = np.zeros((max_refls,N_images,num))
 
    for i in range(num):
       lines = open(files[i]).readlines()
@@ -46,18 +53,18 @@ if __name__ == "__main__":
          tmp = line.split()
          seq = int(float(tmp[14])+0.5) - 1
          if seq<0: seq = 0
-         if seq>359: seq = 359
+         if seq>N_images-1: seq = N_images-1
          xdata[int(nrefls[seq,i]),seq,i] = float(tmp[12])
          ydata[int(nrefls[seq,i]),seq,i] = float(tmp[13])
          nrefls[seq,i] += 1
 
 
-   reject = np.zeros((1000,360,num))
+   reject = np.zeros((max_refls,N_images,num))
 
    for i in range(num-1):
       for j in range(i+1, num):
 
-         for n1 in range(360):
+         for n1 in range(N_images):
 
             if int(nrefls[n1,i]) == 0: continue
             if int(nrefls[n1,j]) == 0: continue
@@ -71,7 +78,7 @@ if __name__ == "__main__":
                      reject[n2,n1,i] = 1
                      reject[n3,n1,j] = 1
 
-   nrefls = np.zeros((360,num))
+   nrefls = np.zeros((N_images,num))
    for i in range(num):
       lines = open(files[i]).readlines()
       fp = open(files[i].split('.')[0]+'_REM.HKL','w')
@@ -81,7 +88,7 @@ if __name__ == "__main__":
          tmp = line.split()
          seq = int(float(tmp[14])+0.5) - 1
          if seq<0: seq = 0
-         if seq>359: seq = 359
+         if seq>N_images-1: seq = N_images-1
          if reject[int(nrefls[seq,i]),seq,i]< 0.5:
             fp.write(line)
          nrefls[seq,i] += 1

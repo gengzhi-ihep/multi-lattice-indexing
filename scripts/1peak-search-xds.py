@@ -45,7 +45,7 @@ if __name__ == "__main__":
       if "JOB" in line:
           line = "JOB= XYCORR INIT COLSPOT \n"
       elif "DATA_RANGE" in line:
-          line = "DATA_RANGE=%d %d \n"%(opts.npat,opts.npat)
+          line = "DATA_RANGE=%d %d \n"%(1,opts.npat)
       elif "SPOT_RANGE" in line:
           line = "SPOT_RANGE=%d %d \n"%(opts.npat,opts.npat)
       elif "ROTATION_AXIS" in line:
