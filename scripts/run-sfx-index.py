@@ -49,16 +49,28 @@ if __name__ == "__main__":
    curdir = os.getcwd()
    os.chdir(opts.res)
 
-   command = 'cp '+ curdir+'/param.config param.config'
+   command = 'cp '+ curdir+'/param.config param.config-backup'
    os.system(command)
 
    command = opts.mpi
    args = " -np %d %s" % (opts.node, opts.exe)
    command += args
 
+   wavelengths = open('wavelengths.lst','r').readlines()
+   params_lines = open('param.config-backup','r').readlines()
+
    with open('log','w') as f:
 
       for i in range(opts.nimg):
+
+         #update wavelength in param.config for each image
+         with open('param.config','w') as fp:
+             for line in params_lines:
+                 if 'Wavelength' in line:
+                     fp.write("Wavelength = %.4f   # X-ray wavelength (unit: angstrom)\n"%float(wavelengths[i]))
+                 else:
+                     fp.write(line)
+         fp.close()
 
          sel = np.where(spots[:,0]==i+1)[0]
          spot = spots[sel]
@@ -72,27 +84,37 @@ if __name__ == "__main__":
             p = subprocess.Popen(command,shell=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 
             log = p.stdout.readlines()
-            if len(log) == 0 :
+
+            if len(log) < 50 :
                break
-            position_err = float(log[103].split()[-1])
-            tmp1 = int(log[112].split()[0])
-            tmp2 = int(log[112].split()[-1])
-            match_rate = float(tmp1)/float(tmp2)
+
+
+            for (n_tmp,line) in enumerate(log):
+                if "Cycle of refinement:   10" in line:
+                    position_err = float(log[n_tmp+3].split()[-2])
+                elif "Summary of reflection matching" in line:
+                    tmp1 = int(log[n_tmp+2].split()[0])
+                    tmp2 = int(log[n_tmp+2].split()[-1])
+                    match_rate = float(tmp1)/float(tmp2)
+                elif "Refined Orientation Matrix" in line:
+                    asr = log[n_tmp+2]
+                    bsr = log[n_tmp+3]
+                    csr = log[n_tmp+4]
 
             if tmp1 < 10 and position_err > 1.0:
-               break
+                break
             if tmp1 >= 10 and position_err > 1.5:
-               break
+                break
             if tmp1 < 6:
-               break
+                break
 
             print "Image: %d  lattice: %d "%(i+1,n+1)
             f.write("Image: %d  lattice: %d \n"%(i+1,n+1))
 
-            f.write(log[107])
-            f.write(log[108])
-            f.write(log[109])
-            f.write(log[110])
+            f.write("Refined Orientation Matrix\n")
+            f.write(asr)
+            f.write(bsr)
+            f.write(csr)
             f.write("Position Error: %6.3f  Match rate: %5.3f  %d / %d \n"%(position_err,match_rate,tmp1,tmp2))
             print "Position Error: %6.3f  Match rate: %5.3f  %d / %d"%(position_err,match_rate,tmp1,tmp2)
 

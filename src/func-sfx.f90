@@ -57,7 +57,7 @@ module sfx
        integer eof, i, j, n
        character(len=50) line
        open(10,file=filename,status='old')
-       read(10,'(/////)')  !first omit the first 4 rows
+       read(10,'(////)')  !first omit the first 4 rows
 
        do n = 1, size(geom) !total panels
        do i = 1, 9          !each panel has 8 parameters

@@ -8,8 +8,8 @@ python 4correct-xds.py -s 96 -u "77.0 77.0 37.24 90.0 90.0 90.0" -z "50  0" -m "
 
 python 5multi-merge.py -f "XDS_ASCII.HKL" -u "77.0 77.0 37.24 90.0 90.0 90.0" -s 96 -t "TRUE" -m "."
 
-python reject-overlap-xds.py -f "INTEGRATE1.HKL  INTEGRATE2.HKL INTEGRATE3.HKL" -t 3.0 -m "." -n 360 -r 100
+python reject-overlap-xds.py -f "INTEGRATE1.HKL  INTEGRATE2.HKL INTEGRATE3.HKL" -t 3.0 -m "." -n 360 -r 2000
 
 python3 show_cluster.py -f "class.txt" -c 0.2 -t 30
 
-python run-sfx-index.py -k 9 -n 5 -t 500 -e "/home/gengzhi/software/multi-indexing/bin/index" -d "/usr/lib64/openmpi/bin/mpirun" -m "."
+python run-sfx-index.py -k 9 -n 5 -t 500 -e "/home/gengzhi/software/multi-indexing/bin/index-sfx" -d "/usr/lib64/openmpi/bin/mpirun" -m "."
