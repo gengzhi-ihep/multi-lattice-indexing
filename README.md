@@ -40,8 +40,8 @@ Installation:
 
 3. run `./configure`.  
 
-4. The following 2 binary files will be created in directory `bin`:  
-`index`,`prepare-sfx`
+4. The following 4 binary files will be created in directory `bin`:  
+`index-mpi`,`index-omp`,`index-sfx`,`prepare-sfx`
 
 5. Finish. Now you can enjoy your test! 😄
 
@@ -273,10 +273,10 @@ Local_angle_step = 1.0  # local orientation search step (unit: degree)
 ```
 * Generate `SPOTS.TXT` from two files: `.stream` from Crystfel-0.7.0 and `.geom` describing detector geometry:
 ```
-prepare-sfc
+prepare-sfx
 ```
 
-* `Indexing`: Using both `param.config` and `SPOT.TXT`, ***MCDPS*** can be performed using script `run-sfx-index.py`, for example:
+* `Indexing`: Using both `param.config` and `SPOTS.TXT`, ***MCDPS*** can be performed using script `run-sfx-index.py`, for example:
 ```
 python run-sfx-index.py -k 9 -n 5 -t 500 -e "/home/gengzhi/software/multi-indexing/bin/index-sfx" -d "/usr/lib64/openmpi/bin/mpirun" -m "."
 ```
