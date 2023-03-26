@@ -1,0 +1,756 @@
+================================================================
+Try to find crystal: 1 
+
+--------------------------------------------------------------
+                 User Input Information
+
+ Space group code:    1
+ Crystal system: Triclinic           
+ Unit Cell:    41.0000   65.0000   71.9000   73.80   82.50   84.00
+ Wavelength(A): 1.500000
+ Distance(mm): 122.00
+ Pixel size(mm): 0.1100
+ Beam center(pixels):  1024.00 1024.00
+ Position Error for indexing(pixels): 3.50
+ Resolution cut? {T/F}:  F
+ Reflection number cut? {T/F}:  F
+ Unit cell refine? {T/F}:  T
+ Unit cell refinement range & step:  1.0 0.2
+ Local refine? {T/F}:  T
+ Beam center refinement range & step:  5 5 1
+ Local angle range & step:  5.0 1.0
+ Number of threads for OpenMP:   36
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial indexing result
+
+ Match rate:  0.190  Positional deviation (pixels):    1.986
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 After prior information correction
+
+ Match rate:  0.260Positional deviation:   1.357
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial Orientation Matrix
+
+  0.012587 -0.013120 -0.002506
+  0.012915  0.009108 -0.011568
+  0.016825  0.001145  0.008488
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Preliminary results before refinement
+
+                       UC_a    UC_b    UC_c     Psi    Phi    Theta  CenterX CenterY Distance 
+ Inital parameters:    41.00   65.20   71.90   45.41  317.37   79.79 1023.00 1024.00  122.00
+ Initial Residual Error:     1.357 pixels
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Iterative refinement process
+
+ Cycle of refinement:    1
+  141 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.32   71.93   45.49  317.28   79.94 1022.99 1024.20  122.02
+ Final Residual Error:   1.207 pixels
+
+ Cycle of refinement:    2
+  142 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.34   71.93   45.47  317.27   79.94 1023.03 1024.20  122.05
+ Final Residual Error:   1.157 pixels
+
+ Cycle of refinement:    3
+  143 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.34   71.93   45.47  317.27   79.94 1023.03 1024.20  122.05
+ Final Residual Error:   1.173 pixels
+
+ Cycle of refinement:    4
+  143 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.33   71.93   45.47  317.27   79.94 1023.03 1024.20  122.05
+ Final Residual Error:   1.172 pixels
+
+ Cycle of refinement:    5
+  143 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.36   71.91   45.47  317.27   79.93 1023.05 1024.20  122.05
+ Final Residual Error:   1.167 pixels
+
+ Cycle of refinement:    6
+  143 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.36   71.92   45.47  317.26   79.93 1023.16 1024.14  122.05
+ Final Residual Error:   1.156 pixels
+
+ Cycle of refinement:    7
+  142 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.36   71.92   45.47  317.26   79.93 1023.16 1024.14  122.05
+ Final Residual Error:   1.139 pixels
+
+ Cycle of refinement:    8
+  142 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.36   71.92   45.47  317.26   79.93 1023.16 1024.14  122.05
+ Final Residual Error:   1.139 pixels
+
+ Cycle of refinement:    9
+  142 reflections matched and used for refinement from total of  543
+ Refined parameters:    41.04   65.36   71.92   45.47  317.26   79.93 1023.16 1024.14  122.05
+ Final Residual Error:   1.139 pixels
+
+ Cycle of refinement:   10
+  142 reflections matched and used for refinement from total of  543
+ Refined parameters:    40.99   65.32   71.88   45.44  317.27   79.89 1023.33 1024.31  121.96
+ Final Residual Error:   1.115 pixels
+
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Refined Orientation Matrix
+
+  0.012554 -0.013099 -0.002524
+  0.012901  0.009088 -0.011581
+  0.016872  0.001125  0.008472
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Summary of reflection matching
+
+  141 reflections have been identified after refinement and written to file from total of  543
+--------------------------------------------------------------
+
+ Total Time used (seconds):     349.00
+================================================================
+
+================================================================
+Try to find crystal: 2 
+
+--------------------------------------------------------------
+                 User Input Information
+
+ Space group code:    1
+ Crystal system: Triclinic           
+ Unit Cell:    41.0000   65.0000   71.9000   73.80   82.50   84.00
+ Wavelength(A): 1.500000
+ Distance(mm): 122.00
+ Pixel size(mm): 0.1100
+ Beam center(pixels):  1024.00 1024.00
+ Position Error for indexing(pixels): 3.50
+ Resolution cut? {T/F}:  F
+ Reflection number cut? {T/F}:  F
+ Unit cell refine? {T/F}:  T
+ Unit cell refinement range & step:  1.0 0.2
+ Local refine? {T/F}:  T
+ Beam center refinement range & step:  5 5 1
+ Local angle range & step:  5.0 1.0
+ Number of threads for OpenMP:   36
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial indexing result
+
+ Match rate:  0.182  Positional deviation (pixels):    2.081
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 After prior information correction
+
+ Match rate:  0.251Positional deviation:   2.107
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial Orientation Matrix
+
+  0.006103  0.004435 -0.014503
+ -0.012840  0.014070 -0.000703
+  0.020905  0.005970  0.001923
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Preliminary results before refinement
+
+                       UC_a    UC_b    UC_c     Psi    Phi    Theta  CenterX CenterY Distance 
+ Inital parameters:    40.00   65.60   71.50   77.35  104.12  275.02 1022.00 1020.00  122.00
+ Initial Residual Error:     2.107 pixels
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Iterative refinement process
+
+ Cycle of refinement:    1
+  101 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.00   65.57   71.48   77.62  104.00  274.39 1022.03 1019.99  122.02
+ Final Residual Error:   1.588 pixels
+
+ Cycle of refinement:    2
+  106 reflections matched and used for refinement from total of  402
+ Refined parameters:    39.97   64.65   70.64   77.82  103.89  274.08 1022.31 1021.83  120.56
+ Final Residual Error:   0.949 pixels
+
+ Cycle of refinement:    3
+  106 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.05   64.70   70.72   77.83  103.87  274.07 1022.34 1022.02  120.72
+ Final Residual Error:   0.866 pixels
+
+ Cycle of refinement:    4
+  105 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.28   65.12   71.15   77.81  103.90  274.07 1022.31 1021.97  121.53
+ Final Residual Error:   0.814 pixels
+
+ Cycle of refinement:    5
+  106 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.30   65.18   71.22   77.79  103.92  274.06 1022.32 1021.95  121.64
+ Final Residual Error:   0.826 pixels
+
+ Cycle of refinement:    6
+  106 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.30   65.18   71.22   77.79  103.92  274.06 1022.32 1021.95  121.64
+ Final Residual Error:   0.826 pixels
+
+ Cycle of refinement:    7
+  106 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.30   65.18   71.22   77.79  103.92  274.06 1022.32 1021.95  121.64
+ Final Residual Error:   0.826 pixels
+
+ Cycle of refinement:    8
+  106 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.30   65.18   71.22   77.79  103.92  274.06 1022.32 1021.95  121.64
+ Final Residual Error:   0.826 pixels
+
+ Cycle of refinement:    9
+  106 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.30   65.18   71.22   77.79  103.92  274.06 1022.32 1021.95  121.64
+ Final Residual Error:   0.826 pixels
+
+ Cycle of refinement:   10
+  106 reflections matched and used for refinement from total of  402
+ Refined parameters:    40.30   65.18   71.22   77.79  103.92  274.06 1022.32 1021.95  121.64
+ Final Residual Error:   0.826 pixels
+
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Refined Orientation Matrix
+
+  0.005667  0.004335 -0.014595
+ -0.012616  0.014200 -0.000708
+  0.020936  0.006010  0.001653
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Summary of reflection matching
+
+  106 reflections have been identified after refinement and written to file from total of  402
+--------------------------------------------------------------
+
+ Total Time used (seconds):     288.00
+================================================================
+
+================================================================
+Try to find crystal: 3 
+
+--------------------------------------------------------------
+                 User Input Information
+
+ Space group code:    1
+ Crystal system: Triclinic           
+ Unit Cell:    41.0000   65.0000   71.9000   73.80   82.50   84.00
+ Wavelength(A): 1.500000
+ Distance(mm): 122.00
+ Pixel size(mm): 0.1100
+ Beam center(pixels):  1024.00 1024.00
+ Position Error for indexing(pixels): 3.50
+ Resolution cut? {T/F}:  F
+ Reflection number cut? {T/F}:  F
+ Unit cell refine? {T/F}:  T
+ Unit cell refinement range & step:  1.0 0.2
+ Local refine? {T/F}:  T
+ Beam center refinement range & step:  5 5 1
+ Local angle range & step:  5.0 1.0
+ Number of threads for OpenMP:   36
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial indexing result
+
+ Match rate:  0.186  Positional deviation (pixels):    2.244
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 After prior information correction
+
+ Match rate:  0.375Positional deviation:   2.193
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial Orientation Matrix
+
+  0.021341 -0.008670  0.000248
+  0.006378  0.006737  0.009823
+ -0.009735 -0.011723  0.010862
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Preliminary results before refinement
+
+                       UC_a    UC_b    UC_c     Psi    Phi    Theta  CenterX CenterY Distance 
+ Inital parameters:    41.60   65.00   71.50   53.29  161.86   53.29 1026.00 1027.00  122.00
+ Initial Residual Error:     2.193 pixels
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Iterative refinement process
+
+ Cycle of refinement:    1
+  111 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.78   64.88   71.90   52.86  161.61   52.72 1025.89 1025.69  122.61
+ Final Residual Error:   1.286 pixels
+
+ Cycle of refinement:    2
+  123 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   0.984 pixels
+
+ Cycle of refinement:    3
+  128 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   1.020 pixels
+
+ Cycle of refinement:    4
+  128 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   1.020 pixels
+
+ Cycle of refinement:    5
+  128 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   1.020 pixels
+
+ Cycle of refinement:    6
+  128 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   1.020 pixels
+
+ Cycle of refinement:    7
+  128 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   1.020 pixels
+
+ Cycle of refinement:    8
+  128 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   1.020 pixels
+
+ Cycle of refinement:    9
+  128 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   1.020 pixels
+
+ Cycle of refinement:   10
+  128 reflections matched and used for refinement from total of  296
+ Refined parameters:    41.85   64.64   72.19   52.53  161.27   52.46 1026.25 1025.20  122.62
+ Final Residual Error:   1.020 pixels
+
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Refined Orientation Matrix
+
+  0.021175 -0.008770  0.000341
+  0.006460  0.007019  0.009525
+ -0.009688 -0.011606  0.010937
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Summary of reflection matching
+
+  128 reflections have been identified after refinement and written to file from total of  296
+--------------------------------------------------------------
+
+ Total Time used (seconds):     200.12
+================================================================
+
+================================================================
+Try to find crystal: 4 
+
+--------------------------------------------------------------
+                 User Input Information
+
+ Space group code:    1
+ Crystal system: Triclinic           
+ Unit Cell:    41.0000   65.0000   71.9000   73.80   82.50   84.00
+ Wavelength(A): 1.500000
+ Distance(mm): 122.00
+ Pixel size(mm): 0.1100
+ Beam center(pixels):  1024.00 1024.00
+ Position Error for indexing(pixels): 3.50
+ Resolution cut? {T/F}:  F
+ Reflection number cut? {T/F}:  F
+ Unit cell refine? {T/F}:  T
+ Unit cell refinement range & step:  1.0 0.2
+ Local refine? {T/F}:  T
+ Beam center refinement range & step:  5 5 1
+ Local angle range & step:  5.0 1.0
+ Number of threads for OpenMP:   36
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial indexing result
+
+ Match rate:  0.214  Positional deviation (pixels):    2.234
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 After prior information correction
+
+ Match rate:  0.488Positional deviation:   1.808
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial Orientation Matrix
+
+  0.024580  0.000861 -0.003972
+ -0.004260  0.014671 -0.008648
+  0.002044  0.006233  0.010920
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Preliminary results before refinement
+
+                       UC_a    UC_b    UC_c     Psi    Phi    Theta  CenterX CenterY Distance 
+ Inital parameters:    40.40   65.40   72.30   84.22  157.50  318.71 1022.00 1026.00  122.00
+ Initial Residual Error:     1.808 pixels
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Iterative refinement process
+
+ Cycle of refinement:    1
+   82 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.40   65.38   72.29   83.94  157.57  318.68 1021.77 1026.05  122.12
+ Final Residual Error:   1.233 pixels
+
+ Cycle of refinement:    2
+   87 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.44   65.46   72.12   83.87  157.60  318.65 1021.72 1026.06  122.13
+ Final Residual Error:   1.100 pixels
+
+ Cycle of refinement:    3
+   88 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.44   65.46   72.13   83.87  157.61  318.66 1021.72 1026.06  122.13
+ Final Residual Error:   1.127 pixels
+
+ Cycle of refinement:    4
+   88 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.41   65.45   72.19   83.90  157.55  318.65 1021.71 1026.14  122.15
+ Final Residual Error:   1.111 pixels
+
+ Cycle of refinement:    5
+   87 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.44   65.45   72.16   83.87  157.59  318.67 1021.71 1026.14  122.15
+ Final Residual Error:   1.069 pixels
+
+ Cycle of refinement:    6
+   87 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.44   65.45   72.16   83.87  157.59  318.67 1021.71 1026.14  122.15
+ Final Residual Error:   1.069 pixels
+
+ Cycle of refinement:    7
+   87 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.44   65.45   72.16   83.87  157.59  318.67 1021.71 1026.14  122.15
+ Final Residual Error:   1.069 pixels
+
+ Cycle of refinement:    8
+   87 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.44   65.45   72.16   83.87  157.59  318.67 1021.71 1026.14  122.15
+ Final Residual Error:   1.069 pixels
+
+ Cycle of refinement:    9
+   87 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.43   65.44   72.11   83.88  157.58  318.67 1021.70 1026.16  122.12
+ Final Residual Error:   1.066 pixels
+
+ Cycle of refinement:   10
+   87 reflections matched and used for refinement from total of  168
+ Refined parameters:    40.43   65.43   72.16   83.88  157.58  318.68 1021.72 1026.16  122.12
+ Final Residual Error:   1.062 pixels
+
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Refined Orientation Matrix
+
+  0.024551  0.000929 -0.003989
+ -0.004350  0.014654 -0.008663
+  0.001984  0.006245  0.010941
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Summary of reflection matching
+
+   87 reflections have been identified after refinement and written to file from total of  168
+--------------------------------------------------------------
+
+ Total Time used (seconds):     117.44
+================================================================
+
+================================================================
+Try to find crystal: 5 
+
+--------------------------------------------------------------
+                 User Input Information
+
+ Space group code:    1
+ Crystal system: Triclinic           
+ Unit Cell:    41.0000   65.0000   71.9000   73.80   82.50   84.00
+ Wavelength(A): 1.500000
+ Distance(mm): 122.00
+ Pixel size(mm): 0.1100
+ Beam center(pixels):  1024.00 1024.00
+ Position Error for indexing(pixels): 3.50
+ Resolution cut? {T/F}:  F
+ Reflection number cut? {T/F}:  F
+ Unit cell refine? {T/F}:  T
+ Unit cell refinement range & step:  1.0 0.2
+ Local refine? {T/F}:  T
+ Beam center refinement range & step:  5 5 1
+ Local angle range & step:  5.0 1.0
+ Number of threads for OpenMP:   36
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial indexing result
+
+ Match rate:  0.222  Positional deviation (pixels):    2.084
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 After prior information correction
+
+ Match rate:  0.889Positional deviation:   1.836
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial Orientation Matrix
+
+  0.009834  0.000463  0.011813
+  0.008231  0.014188 -0.007027
+ -0.021067  0.007088  0.004569
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Preliminary results before refinement
+
+                       UC_a    UC_b    UC_c     Psi    Phi    Theta  CenterX CenterY Distance 
+ Inital parameters:    41.00   65.80   72.30   86.66   56.84   71.75 1019.00 1019.00  122.00
+ Initial Residual Error:     1.836 pixels
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Iterative refinement process
+
+ Cycle of refinement:    1
+   72 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.43   65.92   72.70   86.90   56.94   72.05 1019.74 1020.88  122.63
+ Final Residual Error:   0.639 pixels
+
+ Cycle of refinement:    2
+   72 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.03   65.23   71.95   86.90   56.94   72.03 1019.71 1020.91  121.25
+ Final Residual Error:   0.540 pixels
+
+ Cycle of refinement:    3
+   73 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.11   65.38   72.11   86.91   56.96   72.03 1019.72 1020.90  121.55
+ Final Residual Error:   0.553 pixels
+
+ Cycle of refinement:    4
+   73 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.11   65.38   72.11   86.91   56.96   72.02 1019.72 1020.90  121.55
+ Final Residual Error:   0.553 pixels
+
+ Cycle of refinement:    5
+   73 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.11   65.38   72.11   86.91   56.96   72.02 1019.72 1020.90  121.55
+ Final Residual Error:   0.553 pixels
+
+ Cycle of refinement:    6
+   73 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.11   65.38   72.11   86.91   56.96   72.02 1019.72 1020.90  121.55
+ Final Residual Error:   0.553 pixels
+
+ Cycle of refinement:    7
+   73 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.11   65.38   72.11   86.91   56.96   72.02 1019.72 1020.90  121.55
+ Final Residual Error:   0.553 pixels
+
+ Cycle of refinement:    8
+   73 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.11   65.38   72.11   86.91   56.96   72.02 1019.72 1020.90  121.55
+ Final Residual Error:   0.553 pixels
+
+ Cycle of refinement:    9
+   73 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.11   65.38   72.11   86.91   56.96   72.02 1019.72 1020.90  121.55
+ Final Residual Error:   0.553 pixels
+
+ Cycle of refinement:   10
+   73 reflections matched and used for refinement from total of   81
+ Refined parameters:    41.11   65.38   72.11   86.91   56.96   72.02 1019.72 1020.90  121.55
+ Final Residual Error:   0.553 pixels
+
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Refined Orientation Matrix
+
+  0.009686  0.000549  0.011857
+  0.008153  0.014288 -0.007068
+ -0.021087  0.007109  0.004511
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Summary of reflection matching
+
+   73 reflections have been identified after refinement and written to file from total of   81
+--------------------------------------------------------------
+
+ Total Time used (seconds):      62.25
+================================================================
+
+================================================================
+Try to find crystal: 6 
+
+--------------------------------------------------------------
+                 User Input Information
+
+ Space group code:    1
+ Crystal system: Triclinic           
+ Unit Cell:    41.0000   65.0000   71.9000   73.80   82.50   84.00
+ Wavelength(A): 1.500000
+ Distance(mm): 122.00
+ Pixel size(mm): 0.1100
+ Beam center(pixels):  1024.00 1024.00
+ Position Error for indexing(pixels): 3.50
+ Resolution cut? {T/F}:  F
+ Reflection number cut? {T/F}:  F
+ Unit cell refine? {T/F}:  T
+ Unit cell refinement range & step:  1.0 0.2
+ Local refine? {T/F}:  T
+ Beam center refinement range & step:  5 5 1
+ Local angle range & step:  5.0 1.0
+ Number of threads for OpenMP:   36
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial indexing result
+
+ Match rate:  0.625  Positional deviation (pixels):    1.984
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 After prior information correction
+
+ Match rate:  0.875Positional deviation:   2.772
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+                 Initial Orientation Matrix
+
+  0.011067  0.001402 -0.013363
+  0.009503  0.013195  0.000431
+  0.019155 -0.008788  0.005574
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Preliminary results before refinement
+
+                       UC_a    UC_b    UC_c     Psi    Phi    Theta  CenterX CenterY Distance 
+ Inital parameters:    42.00   65.60   72.30   69.75  253.92   72.47 1029.00 1019.00  122.00
+ Initial Residual Error:     2.772 pixels
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Iterative refinement process
+
+ Cycle of refinement:    1
+    7 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.06   65.68   72.18   69.79  253.78   72.81 1029.01 1019.00  122.04
+ Final Residual Error:   2.095 pixels
+
+ Cycle of refinement:    2
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.06   65.68   72.18   69.77  253.76   72.84 1029.01 1019.00  122.04
+ Final Residual Error:   0.403 pixels
+
+ Cycle of refinement:    3
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.09   65.78   72.21   69.79  253.94   72.64 1029.69 1017.10  122.11
+ Final Residual Error:   0.141 pixels
+
+ Cycle of refinement:    4
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.08   65.88   72.29   69.73  253.90   72.60 1029.66 1017.22  122.21
+ Final Residual Error:   0.106 pixels
+
+ Cycle of refinement:    5
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.08   65.89   72.30   69.72  253.90   72.59 1029.67 1017.16  122.23
+ Final Residual Error:   0.098 pixels
+
+ Cycle of refinement:    6
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.08   65.89   72.30   69.72  253.90   72.59 1029.68 1017.17  122.23
+ Final Residual Error:   0.098 pixels
+
+ Cycle of refinement:    7
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.08   65.89   72.30   69.72  253.90   72.59 1029.68 1017.17  122.23
+ Final Residual Error:   0.098 pixels
+
+ Cycle of refinement:    8
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.08   65.89   72.30   69.72  253.90   72.59 1029.68 1017.17  122.23
+ Final Residual Error:   0.098 pixels
+
+ Cycle of refinement:    9
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.09   65.90   72.31   69.74  253.91   72.59 1029.83 1017.24  122.26
+ Final Residual Error:   0.095 pixels
+
+ Cycle of refinement:   10
+    4 reflections matched and used for refinement from total of    8
+ Refined parameters:    42.09   65.90   72.32   69.74  253.91   72.59 1029.86 1017.22  122.26
+ Final Residual Error:   0.093 pixels
+
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Refined Orientation Matrix
+
+  0.011003  0.001400 -0.013369
+  0.009509  0.013128  0.000425
+  0.019122 -0.008758  0.005550
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+                 Summary of reflection matching
+
+    4 reflections have been identified after refinement and written to file from total of    8
+--------------------------------------------------------------
+
+ Total Time used (seconds):       8.62
+================================================================
+

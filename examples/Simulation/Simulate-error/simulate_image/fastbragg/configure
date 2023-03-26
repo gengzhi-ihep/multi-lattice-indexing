@@ -1,0 +1,10 @@
+gcc -o ../nanoBragg nanoBragg.c -lm
+gcc -o ../nonBragg nonBragg.c -lm
+gcc -o ../noisify noisify.c -lm
+gcc -o ../read_img read_img.c
+h5cc -o ../write_hdf5 write_hdf5.c
+gfortran -o ../simulate-errors-p1 randgen.f simulate-errors-p1.f90
+gfortran -o ../simulate-errors-p43212 randgen.f simulate-errors-p43212.f90
+gfortran -o ../simulate-errors-c2221 randgen.f simulate-errors-c2221.f90
+gfortran -o ../simulate-errors-i432 randgen.f simulate-errors-i432.f90
+gfortran -o ../simulate-errors-p622 randgen.f simulate-errors-p622.f90

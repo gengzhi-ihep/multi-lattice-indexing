@@ -21,7 +21,7 @@ if __name__ == "__main__":
    parser.add_option('-k','--node',dest='node',default="9",type='int',help='Parallel nodes number')
    parser.add_option('-n','--nlat',dest='nlat',default=10,type='int',help='Maximun number of lattices')
    parser.add_option('-t','--nimg',dest='nimg',default=500,type='int',help='Number of images')
-   parser.add_option('-e','--exe',dest='exe',default='/home/gengzhi/codes/index-search/software/bin/index',type='string',help='Path to executive index file')
+   parser.add_option('-e','--exe',dest='exe',default='/home/gengzhi/software/multi-indexing/bin/index-mpi',type='string',help='Path to executive index file')
    parser.add_option('-d','--mpi',dest='mpi',default='/usr/lib64/openmpi/bin/mpirun',type='string',help='Path to mpirun')
    parser.add_option('-m','--res',dest='res',default='./results',type='string',help='Path to saving result')
 

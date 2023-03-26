@@ -1,0 +1,5 @@
+./UBtoA.awk << EOF | tee A.mat
+CELL 77.27 77.27 37.48 90.0 90.0 90.0
+WAVE 1.5
+RANDOM
+EOF

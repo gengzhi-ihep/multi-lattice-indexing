@@ -20,6 +20,7 @@ Before compiling source codes, the following libraries or softwares are required
 * python
 * gfortran
 * openmpi
+* openmp
 * [gsl-1.x](http://www.gnu.org/software/gsl/)
 * [fgsl-1.0.0](https://doku.lrz.de/display/PUBLIC/FGSL+-+A+Fortran+interface+to+the+GNU+Scientific+Library)
 * [XDS](https://xds.mr.mpg.de/) (for oscillation datasets)
@@ -86,11 +87,14 @@ YCScan = 6            # beam center y scan range (unit: pixel)
 XYCScanstep = 2       # beam center scan step (unit: pixel)
 Local_angle_range = 5.0 # local orientation search range (unit: degree) 
 Local_angle_step = 1.0  # local orientation search step (unit: degree)
+
+#specify number of threads used for indexing with 2run-index-omp.sh
+#num_threads = 8
 ```
 
 * `Peak search`: generate `SPOT.TXT` with script `1peak-search-xds.py`, for example:
 ```
-python 1peak-search-xds.py -p "/home/gengzhi/dataset/lyso-3crystals" -f "lyso-3crystals01.????" -n 1 -r "1  0  0"  -m "./results"
+python 1peak-search-xds.py -p "/home/gengzhi/dataset/lyso-3crystals" -f "lyso-3crystals01.????" -n 1 -r "1  0  0"  -m "."
 ```
 Options you may set are:
 ```
@@ -105,26 +109,43 @@ Options:
   -m RES, --res=RES       Path to saving indexing result. Optional, default is './results'.
 ```
 
-* `Indexing`: Using both `param.config` and `SPOT.TXT`, ***MCDPS*** can be performed using script `2run-index.py`, for example:
+* `Indexing`: Using both `param.config` and `SPOT.TXT`, ***MCDPS*** can be performed using script `2run-index-mpi.py` of `2run-index-omp.py`, for example:
 ```
-python 2run-index.py -k 9 -n 5 -e "/home/gengzhi/codes/index-search/software/bin/index" -d "/usr/lib64/openmpi/bin/mpirun" -m "./results"
+python 2run-index-mpi.py -k 9 -n 5 -e "/home/gengzhi/software/multi-indexing/bin/index-mpi" -d "/usr/lib64/openmpi/bin/mpirun" -m "."
 ```
 Options you may set are:
 ```
-Usage: python 2run-index.py [options]
+Usage: python 2run-index-mpi.py [options]
 
 Options:
   -h, --help              show this help message and exit.
   -k NODE, --node=NODe    Number of CPU cores for parallel computing. Optional, default is 9.
   -n NLAT, --nlat=NLAT    Number of target crystal lattices to index. Optional, default is 5.
-  -e EXE, --exe=EXE       Path to binary executive file-->index. Compulsory.
+  -e EXE, --exe=EXE       Path to binary executive file-->index-mpi. Compulsory.
   -d MPI, --mpi=MPI       Path to parallel compiler-->mpirun. Compulsory.
   -m RES, --res=RES       Path to saving indexing result. Optional, default is './results'.
 ```
 
+Or you can use 2run-index-omp.py. 
+Note : We recommend using 2run-index-omp.py when considering prior information correction since its more effective acceleration.
+```
+python 2run-index-omp.py -n 5 -e "/home/gengzhi/software/multi-indexing/bin/index-omp" -m "."
+```
+Options you may set are:
+```
+Usage: python 2run-index-omp.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -n NLAT, --nlat=NLAT  Lattices number
+  -e EXE, --exe=EXE     Path to executive index file-->index-omp
+  -m RES, --res=RES     Path to saving result
+```
+
 * `Integration`: Given orientation matrix, integrate all diffraction images with script `3integrate-xds.py`, for example:
 ```
-python 3integrate-xds.py -s 96 -u "77.0 77.0 37.24 90.0 90.0 90.0" -t "1  30" -r "1  0  0"  -o "1034.84 1028.31" -z "50  0" -a "-1.3053 -33.4794 69.3425" -b "47.555 54.1956 27.0615" -c "-29.2227 20.8823 9.5321" -m "./results"
+
+python 3integrate-xds.py -s 96 -u "77.0 77.0 37.24 90.0 90.0 90.0" -n 1 -t "1  30" -r "1  0  0"  -o "1034.84 1028.31" -z "50  0" -m "0.009463 -0.005849 -0.014483;0.008637 0.002454 0.019843;-0.002964 -0.011519 0.011581" -e "."
 ```
 Options you may set are:
 ```
@@ -132,21 +153,20 @@ Usage: python 3integrate-xds.py [options]
 
 Options:
   -h, --help              show this help message and exit.
+  -n NPAT, --npat=NPAT    Pattern start number for index.
   -t RANG, --rang=RANG    Start and End image number used for integration. Optional, default is '1  30'.
   -s SPGN, --spgn=SPGN    Space group number. Compulsory.
   -u UNIT, --unit=UNIT    Unit Cell parameters. Compulsory.
   -r IROT, --irot=IROT    Rotation axis direction dependent on station setup. Optional, default is '1  0  0'.
   -o ORGN, --orgn=ORGN    Beam center X and Y in unit of pixels. Compulsory.
   -z RESO, --reso=RESO    Resolution range. Optional, default is '50  0'.
-  -m RES, --res=RES       Path to saving integration result. Optional, default is './results'.
-  -a IOM1, --om1=IOM1     The first line of inverse orientation matrix. Compulsory.
-  -b IOM2, --om2=IOM2     The second line of inverse orientation matrix. Compulsory.
-  -c IOM3, --om3=IOM3     The third line of inverse orientation matrix. Compulsory.
+  -e RES, --res=RES       Path to saving integration result. Optional, default is './results'.
+  -m OM, --om=OM          Input orientation matrix (3 by 3)
 ```
 
 * `Scale and Merge`: Scale and merge integrated intensities for each crystal with script `4correct-xds.py`, for example:
 ```
-python 4correct-xds.py -s 96 -u "77.0 77.0 37.24 90.0 90.0 90.0" -z "50  0" -m "./results"
+python 4correct-xds.py -s 96 -u "77.0 77.0 37.24 90.0 90.0 90.0" -z "50  0" -m "."
 ```
 Options you may set are:
 ```
@@ -162,7 +182,7 @@ Options:
 
 * `Multiple datasets Merge`: Scale and merge multiple integrated intensities to generate more complete dataset with script `5multi-merge.py`, for example:
 ```
-python 5multi-merge.py -f "XDS_ASCII_1.HKL XDS_ASCII_2.HKL" -u "77.0 77.0 37.24 90.0 90.0 90.0" -s 96 -t "TRUE" -m "./results"
+python 5multi-merge.py -f "XDS_ASCII_1.HKL XDS_ASCII_2.HKL" -u "77.0 77.0 37.24 90.0 90.0 90.0" -s 96 -t "TRUE" -m "."
 ```
 Options you may set are:
 ```
@@ -179,7 +199,7 @@ Options:
 
 * `Remove overlaps`: Remove overlapping reflections between multiple integrated files with script `reject-overlap-xds.py`, for example:
 ```
-python reject-overlap-xds.py -f "INTEGRATE1.HKL  INTEGRATE2.HKL INTEGRATE3.HKL" -t 3.0 -m "./results"
+python reject-overlap-xds.py -f "INTEGRATE1.HKL  INTEGRATE2.HKL INTEGRATE3.HKL" -t 3.0 -m "." -n 360 -r 2000
 ```
 Options you may set are:
 
@@ -191,6 +211,8 @@ Options:
   -f INPF, --inpf=INPF    A list of all input unmerged XDS_ASCII.HKL files to remove overlaps. Compulsory.
   -t CUT, --cut=CUT       Criterion of overlapping between two reflections in unit of pixels. Optional, default is 3.0.
   -m RES, --res=RES       Path to saving result. Optional, default is './results'.
+  -n NPAT, --npat=NPAT  Number of collected diffraction patterns
+  -r NREF, --nref=NREF  Maximum number of reflections for each pattern
 ```
 
 * `show clusters`: Show hierarchy clustering results of match-rate after the first round of whole space search,for example:
@@ -256,12 +278,12 @@ prepare-sfc
 
 * `Indexing`: Using both `param.config` and `SPOT.TXT`, ***MCDPS*** can be performed using script `run-sfx-index.py`, for example:
 ```
-python run-sfx-index.py -k 9 -n 5 -t 500 -e "/home/gengzhi/codes/index-search/software/bin/index" -d "/usr/lib64/openmpi/bin/mpirun" -m "./results"
+python run-sfx-index.py -k 9 -n 5 -t 500 -e "/home/gengzhi/software/multi-indexing/bin/index-sfx" -d "/usr/lib64/openmpi/bin/mpirun" -m "."
 ```
 Options you may set are:
 
 ```
-Usage: python reject-overlap-xds.py [options]
+Usage: python run-sfx-index.py [options]
 
 Options:
   -h, --help              show this help message and exit.

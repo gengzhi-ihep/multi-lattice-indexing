@@ -262,7 +262,7 @@ program main
      interval = nint(num*1.0/(np-1))
 
      n = 0; nz_start = 1
-     do nz = 1, npsi
+     outer:do nz = 1, npsi
         nphi = nint(2*pi*sin(nz*delpsi)/delpsi)
         do ny = 1, nphi
            do nx = 1, ntheta
@@ -273,10 +273,16 @@ program main
                  split_nz = (/nz_start, nz/)
                  nz_start = nz + 1
                  call MPI_SEND(split_nz, 2, MPI_INTEGER, id, 99, MPI_COMM_WORLD, ierr)
+                 if(id .eq. np-2)then
+                    split_nz = (/nz_start, npsi/)
+                    exit outer
+                 end if
               end if
            end do
         end do
-     end do
+     end do outer
+ 
+     call MPI_SEND(split_nz, 2, MPI_INTEGER, np-1, 99, MPI_COMM_WORLD, ierr)
 
   end if
 

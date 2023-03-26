@@ -1,6 +1,8 @@
 python 1peak-search-xds.py -p "/home/gengzhi/dataset/lyso-3crystals" -f "lyso-3crystals01.????" -n 1 -r "1  0  0"  -m "."
 
-python 2run-index.py -k 9 -n 5 -e "/home/gengzhi/software/multi-indexing/bin/index" -d "/usr/lib64/openmpi/bin/mpirun" -m "."
+python 2run-index-mpi.py -k 9 -n 5 -e "/home/gengzhi/software/multi-indexing/bin/index-mpi" -d "/usr/lib64/openmpi/bin/mpirun" -m "."
+
+python 2run-index-omp.py -n 5 -e "/home/gengzhi/software/multi-indexing/bin/index-omp" -m "."
 
 python 3integrate-xds.py -s 96 -u "77.0  77.0  37.24  90.0  90.0  90.0" -n 1 -t "1  30" -r "1  0  0"  -o "1034.84 1028.31" -z "50  0" -m "0.009463 -0.005849 -0.014483;0.008637 0.002454 0.019843;-0.002964 -0.011519 0.011581" -e "."
 

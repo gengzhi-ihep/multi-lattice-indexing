@@ -1,0 +1,2 @@
+python 2run-index-omp.py -n 5 -m '.' -e '/home/gengzhi/software/multi-indexing/bin/index-omp'
+#python 2run-index-mpi.py -k 9 -n 6 -m '.' -e '/home/gengzhi/software/multi-indexing/bin/index-mpi' -d '/usr/lib64/openmpi/bin/mpirun'
