@@ -42,4 +42,4 @@ The <Simulate-free> directory is used for testing multi-indexing with accurate p
 
 3. Compare indexing result with simulated ground-truth.
 
-   Compare log and om.txt to assess the accuracy of indexing.
+   Compare log and om.txt to assess the accuracy of multi-indexing.
